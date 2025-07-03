@@ -3,7 +3,7 @@
 ## Course Learning Plan Schedule
 
 ### ✅ Course 1: Introduction to Git (Beginner) - **COMPLETED**
-### 🔄 Course 2: Intermediate Git (Beginner) - **IN PROGRESS**
+### ✅ Course 2: Intermediate Git (Beginner) - **COMPLETED**
 ### 📋 Course 3: Introduction to GitHub Concepts (Beginner) - **UPCOMING**
 ### 📋 Course 4: Intermediate GitHub Concepts (Beginner) - **UPCOMING**  
 ### 📋 Course 5: Advanced Git (Advanced) - **UPCOMING**
@@ -118,19 +118,206 @@ git restore --staged                           # Unstage all files
 
 ---
 
-## Course 2: Intermediate Git (Beginner) 🔄
+## Course 2: Intermediate Git (Beginner) ✅
 
-### Chapter 01: [Title TBD]
-*Notes to be added as course progresses...*
+### Chapter 01: Introduction to Branches
 
-### Chapter 02: [Title TBD]
-*Notes to be added as course progresses...*
+#### Understanding Branches
+- **Branch**: An individual version of a repository
+- Git uses branches to systematically track multiple versions of files
+- In each branch:
+  - Some files might be the same
+  - Others might be different  
+  - Some may not exist at all
 
-### Chapter 03: [Title TBD]
-*Notes to be added as course progresses...*
+#### Why Use Branches?
+- **Live System Protection**: Default branch (`main`) works as expected
+- **Feature Development**: Develop new features without affecting live system
+- **Parallel Development**: Multiple developers can work simultaneously
+- **Comparison**: Compare repo state between branches
+- **Integration**: Combine contents and push new features to live system
+- **Purpose-Driven**: Each branch should have a specific purpose
 
-### Additional Chapters: [As Needed]
-*Additional chapters will be added based on course structure...*
+#### Working with Branches
+```bash
+# List all branches
+git branch                    # Shows all branches (* indicates current branch)
+
+# Switch between branches
+git switch main              # Switch to main branch
+
+# Create new branch
+git branch speed-test        # Create new branch
+git switch speed-test        # Switch to new branch
+git switch -c speed-test     # Create and switch in one command
+```
+
+#### Branch Terminology
+- **Branching off**: Creating a new branch
+- **Branching off main**: Creating a new branch from main branch
+
+### Chapter 02: Working with Branches (Modifying, Comparing, Merging, Conflicts, Remotes)
+
+#### Diff Recap
+```bash
+git diff                            # Changes between unstaged files and latest commit
+git diff report.md                  # Changes between unstaged file and latest commit
+git diff --staged                   # Changes between staged files and latest commit
+git diff --staged report.md         # Changes between staged file and latest commit
+git diff 35f4b4d 186398f            # Changes between two commits using hashes
+git diff HEAD~1 HEAD~2              # Changes between commits using HEAD notation
+```
+
+#### Comparing Branches
+```bash
+git diff main summary-statistics     # Compare main branch with summary-statistics branch
+```
+
+**Navigation**: Press `Space` to progress through large outputs, `q` to exit
+
+#### Branch Management
+```bash
+# Rename branch
+git branch -m feature_dev chatbot   # Rename feature_dev to chatbot
+
+# Delete merged branch
+git branch -d chatbot               # Delete branch that has been merged
+# Output: Deleted branch chatbot (was 3edb989).
+
+# Delete unmerged branch (force delete)
+git branch -D chatbot               # Force delete unmerged branch
+```
+
+**⚠️ Important**: Difficult to recover deleted branches - be sure before deleting!
+
+#### Merging Branches
+- **Purpose**: Each branch should have a specific purpose (new feature, debugging)
+- **Integration**: Incorporate changes into production (main branch = "ground truth")
+- **Terminology**:
+  - **Parent commits**: Last commits from each branch being merged
+  - **Source**: Branch we want to merge from
+  - **Destination**: Branch we want to merge into
+
+```bash
+# Basic merge workflow
+git switch main                     # Move to destination branch
+git merge ai-assistant             # Merge source branch into current branch
+
+# Alternative syntax
+git merge ai-assistant main        # Merge from any branch
+```
+
+**Merge Types**:
+- **Fast-forward**: Linear commit history, points main to last commit in source branch
+- **Three-way merge**: When branches have diverged
+
+#### Merge Conflicts
+- **Conflict**: Inability to resolve differences in file contents between branches
+- **Cause**: Same file edited in two branches, Git doesn't know which version to keep
+
+**Conflict Resolution Process**:
+```bash
+# When conflict occurs
+git merge documentation
+# Output: Auto-merging README.md
+#         CONFLICT (add/add): Merge conflict in README.md
+#         Automatic merge failed; fix conflicts and then commit the result.
+
+# Open conflicted file
+nano README.md
+```
+
+**Git Conflict Syntax**:
+```
+<<<<<<< HEAD
+Content from current branch
+=======
+Content from branch being merged
+>>>>>>> branch-name
+```
+
+**Resolution Steps**:
+1. Edit file to resolve conflicts
+2. Remove conflict markers
+3. Save (`Ctrl + O`, then `Enter`) and exit (`Ctrl + X`)
+4. Complete merge:
+```bash
+git add README.md
+git commit -m "Resolving README.md conflict"
+git merge documentation              # Should show "Already up to date."
+```
+
+#### Working with Remotes
+- **Local repo**: Repository on your local computer
+- **Remote repo**: Repository stored elsewhere (usually online)
+
+**Benefits of Remote Repos**:
+- Everything is backed up
+- Collaboration regardless of location
+
+**Cloning Repositories**:
+```bash
+# Clone local project
+git clone /home/george/repo
+git clone /home/george/repo new_repo    # Clone and rename
+
+# Clone remote repository
+git clone https://github.com/datacamp/project
+```
+
+**Remote Operations**:
+```bash
+# List remotes
+git remote                          # Shows remote names
+git remote -v                       # Shows remote URLs
+
+# Add new remote
+git remote add george https://github.com/george_datacamp/repo
+```
+
+**Note**: When cloning, Git automatically names the remote `origin`
+
+#### Pulling from Remotes
+- **Fetch**: Download remote content without merging
+- **Pull**: Fetch and merge in one command
+
+```bash
+# Fetch operations
+git fetch origin                    # Fetch all remote branches
+git fetch origin main              # Fetch only main branch
+
+# Merge remote content
+git merge origin                    # Merge origin's main into current branch
+
+# Pull (fetch + merge)
+git pull origin                     # Pull from origin's default branch
+git pull origin dev                 # Pull from origin's dev branch
+```
+
+**⚠️ Important**: Always commit local changes before pulling!
+
+#### Pushing to Remotes
+```bash
+# Basic push
+git push origin main               # Push main branch to origin remote
+
+# Push new local branch to remote
+git push origin hotfix             # Creates hotfix branch on remote
+```
+
+**Push/Pull Best Practices**:
+1. Save changes locally first
+2. Pull before pushing to avoid conflicts
+3. Handle conflicts locally before pushing
+
+**Avoiding Conflicts**:
+```bash
+git pull origin main               # Pull latest changes first
+git push origin main               # Then push your changes
+
+# Pull without opening editor (use with caution)
+git pull --no-edit origin main
+```
 
 ---
 
@@ -181,11 +368,26 @@ git restore --staged                           # Unstage all files
 git status
 git log
 git log --oneline
+git branch
+git remote -v
 
 # Basic Workflow
 git add .
 git commit -m "message"
 git diff
+git diff branch1 branch2
+
+# Branch Operations
+git switch branch-name
+git switch -c new-branch
+git merge source-branch
+git branch -d branch-name
+
+# Remote Operations
+git clone URL
+git pull origin
+git push origin branch-name
+git fetch origin
 
 # Undoing Changes
 git restore --staged filename
@@ -198,18 +400,22 @@ git revert HEAD
 - Use descriptive commit messages
 - Stage related changes together
 - Review changes with `git diff` before committing
+- **Pull before pushing** to avoid conflicts
+- **Create branches for features** and bug fixes
+- **Delete branches** after merging to keep repo clean
+- **Commit local changes** before pulling from remote
 
 ---
 
 ## Learning Progress Tracker
 
 - [x] **Introduction to Git**: Basic commands, staging, committing, history
-- [ ] **Intermediate Git**: [Topics TBD]
+- [x] **Intermediate Git**: Branches, merging, conflicts, remotes, push/pull workflow
 - [ ] **GitHub Concepts**: [Topics TBD]  
 - [ ] **Intermediate GitHub**: [Topics TBD]
 - [ ] **Advanced Git**: [Topics TBD]
 
 ---
 
-*Last Updated: [Current Date]*
-*Course Progress: 1/5 courses completed*
+*Last Updated: Thursday, July 03, 2025*
+*Course Progress: 2/5 courses completed*
