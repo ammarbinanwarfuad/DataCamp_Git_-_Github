@@ -4,7 +4,7 @@
 
 ### ✅ Course 1: Introduction to Git (Beginner) - **COMPLETED**
 ### ✅ Course 2: Intermediate Git (Beginner) - **COMPLETED**
-### 📋 Course 3: Introduction to GitHub Concepts (Beginner) - **UPCOMING**
+### ✅ Course 3: Introduction to GitHub Concepts (Beginner) - **COMPLETED**
 ### 📋 Course 4: Intermediate GitHub Concepts (Beginner) - **UPCOMING**  
 ### 📋 Course 5: Advanced Git (Advanced) - **UPCOMING**
 
@@ -321,16 +321,422 @@ git pull --no-edit origin main
 
 ---
 
-## Course 3: Introduction to GitHub Concepts (Beginner) 📋
+## Course 3: Introduction to GitHub Concepts (Beginner) ✅
 
-### Chapter 01: [Title TBD]
-*Notes to be added when course begins...*
+### Chapter 01: What is GitHub?
 
-### Chapter 02: [Title TBD]
-*Notes to be added when course begins...*
+#### Understanding GitHub
+- **GitHub**: Cloud-based hosting service that allows users to store and track their work (version control)
+- **On-demand resources**: Storage over the internet - no need to store large files locally
+- **Similar platforms**: GitLab, BitBucket
 
-### Additional Chapters: [As Needed]
-*Additional chapters will be added based on course structure...*
+#### GitHub Uses
+- Storing projects
+- Keeping track of projects and files
+- Collaborating with others
+- Social networking for developers
+- Open-source project hosting
+
+#### GitHub vs. Git
+- **GitHub**: 
+  - Enhances Git functionality
+  - Makes project management and collaboration easier
+  - Cannot be used without Git
+- **Git**: 
+  - Version control software
+  - Can be used without GitHub or other hosting platforms
+  - Core technology that GitHub builds upon
+
+#### GitHub Repository (Repo)
+- Contains all files of a project
+- Records past versions of files
+- Provides complete history of every project stage
+- Enables collaboration where several people can work on the same file
+- Can be accessed by anyone (for public repos)
+
+#### Setting Up a Repository
+**Creating a New Repository:**
+- Navigate to GitHub website
+- Click "New" or "Create repository"
+- Choose repository name
+- Select public or private
+- Initialize with README (optional)
+- Add .gitignore (optional)
+- Choose license (optional)
+
+**Repository Navigation:**
+- Files tab: View all repository files
+- Code tab: Browse source code
+- Issues tab: Track bugs and feature requests
+- Pull requests tab: Manage code contributions
+- Actions tab: Automated workflows
+- Settings tab: Repository configuration
+
+#### Creating and Formatting README
+**README Purpose:**
+- Must be descriptive so anyone can understand the project
+- Should list repository contents
+- Clearly explains the project to others
+
+**README Fundamentals:**
+- **Title**: Clear project name
+- **Description of technology**: What tools/languages are used
+- **Why**: Purpose and motivation
+- **Description of the process**: How it works
+- **Table of contents**: For larger projects
+
+**README Extras:**
+- How the project came about
+- The motivation behind it
+- Limitations and challenges
+- What problem it hopes to solve
+- Intended use cases
+- Credits and acknowledgments
+
+**Markdown Formatting:**
+```markdown
+# Heading 1
+## Heading 2
+### Heading 3
+
+**Bold text**
+*Italic text*
+
+[Link text](https://example.com)
+
+![Image description](image-url)
+```
+
+**Edit vs. Preview:**
+- Edit tab: Write markdown
+- Preview tab: See formatted output
+
+### Chapter 02: Repository Management and Collaboration
+
+#### Modifying Repository Structure
+**Creating New Files:**
+- Click "Create new file" in repository
+- Name the file with appropriate extension
+- Add content in the editor
+- Scroll down to commit section
+- Add commit message
+- Choose "Commit directly to main branch" or "Create new branch"
+
+**Uploading Files:**
+- Click "Upload files" in repository
+- Drag and drop files or choose files
+- Add commit message
+- Commit changes
+
+**Creating New Directories:**
+- When creating a file, include directory name: `folder-name/file-name.ext`
+- Directory is automatically created
+
+**Modifying Files:**
+- Click on file name to view
+- Click pencil icon to edit
+- Make changes
+- Commit with descriptive message
+
+**Deleting Files:**
+- Navigate to file
+- Click trash/delete icon
+- Confirm deletion
+- Commit changes
+
+#### Working with Branches
+**Purpose of Branches:**
+- Enable concurrent work on different parts of a project
+- Help reduce risk of conflicting file versions
+- Allow experimentation without affecting main code
+
+**Main Branch:**
+- Default branch in repository
+- Usually contains stable, production-ready code
+- Protected from direct changes in professional settings
+
+**Creating New Branches:**
+- Click branch dropdown (usually shows "main")
+- Type new branch name
+- Click "Create branch" or press Enter
+- New branch is created from current branch
+
+**Branch Operations:**
+```bash
+# List all branches (shows current branch with *)
+git branch
+
+# Switch between branches
+git switch branch-name
+git switch main
+
+# Create and switch to new branch
+git switch -c new-branch-name
+```
+
+**Adding Files to Branches:**
+- Switch to desired branch
+- Add/modify files as normal
+- Changes only affect current branch
+
+**Comparing Branches:**
+- Navigate to repository main page
+- Click "Compare" or use branch dropdown
+- Select branches to compare
+- View differences between branches
+
+#### Branch Protection Rules
+**Purpose:**
+- Set rules for specific branches
+- Ensure code quality and review processes
+- Prevent accidental changes to important branches
+
+**Common Protection Rules:**
+- **Require pull request before merging**: No direct commits to protected branch
+- **Require pull request approval**: Changes must be reviewed and approved
+- **Restrict who can delete**: Prevent accidental branch deletion
+
+**Setting Up Protection Rules:**
+1. Go to Settings > Branches
+2. Click "Add rule" or "Add branch protection rule"
+3. Specify branch name pattern
+4. Select desired protection options
+5. Save changes
+
+#### Repository Access Control
+**Why Restrict Access?**
+- Datasets with personally identifiable information (PII)
+- Commercial or proprietary products
+- Sensitive business information
+- Compliance requirements
+
+**Private vs. Public Repositories:**
+- **Public**: Anyone can view and fork
+- **Private**: Only collaborators can access
+
+**Creating Private Repository:**
+- During repo creation, select "Private"
+- For existing repo: Settings > General > Danger Zone > Change visibility
+
+**Managing Collaborators:**
+1. Go to Settings > Manage access
+2. Click "Invite a collaborator"
+3. Enter username, full name, or email
+4. Send invitation
+5. Collaborator receives email to accept
+
+**Collaboration Permissions:**
+- **Read**: View and download
+- **Write**: Read + push changes
+- **Admin**: Write + manage settings
+
+#### Personal Access Tokens (PAT)
+**Why PATs are Needed:**
+- GitHub removed password authentication for Git operations (August 2021)
+- More secure than passwords
+- Required for terminal/command line access to repositories
+- Not needed for GitHub web interface
+
+**Authentication Error Example:**
+```bash
+git clone https://github.com/user/repo
+Username for 'https://github.com': username
+Password for 'https://username@github.com': 
+remote: Support for password authentication was removed on August 13, 2021.
+```
+
+**Creating a PAT:**
+1. Go to GitHub Settings (profile menu)
+2. Click "Developer settings" (bottom left)
+3. Click "Personal access tokens" > "Tokens (classic)"
+4. Click "Generate new token"
+5. Add note describing token purpose
+6. Set expiration date
+7. Select scopes (permissions needed)
+8. Click "Generate token"
+9. **Copy token immediately** (won't be shown again)
+
+**Using PAT:**
+```bash
+git clone https://github.com/user/repo
+Username for 'https://github.com': your-username
+Password for 'https://your-username@github.com': [paste-PAT-here]
+```
+
+**PAT Security:**
+- ⚠️ **Never share your PAT**
+- Treat it like a password
+- Store securely (password manager recommended)
+- Regenerate if compromised
+
+### Chapter 03: Collaboration and Project Management
+
+#### Using Other Repositories
+**Cloning vs. Forking:**
+
+**Cloning:**
+- Similar to copy-paste but with a link to original repo
+- Creates copy on local computer
+- Linked to original repository
+- Allows updates to go back and forth
+- Use Git commands to push/pull changes
+- Great for collaboration when you have access
+
+**Forking:**
+- Creates independent copy on GitHub
+- No direct link to original repo
+- Good for experimentation without risk
+- Anyone can fork a public repo
+- Submit changes via pull requests
+- Different from creating branch (no collaborator access needed)
+
+**Cloning Process:**
+```bash
+# Clone repository to local machine
+git clone https://github.com/username/repository-name.git
+
+# Example output
+Cloning into 'repository-name'...
+remote: Counting objects: 10, done.
+remote: Compressing objects: 100% (8/8), done.
+remote: Total 10 (delta 1), reused 10 (delta 1)
+Unpacking objects: 100% (10/10), done.
+```
+
+**Forking Process:**
+1. Navigate to repository you want to fork
+2. Click "Fork" button (top right)
+3. Choose where to fork (your account or organization)
+4. Wait for GitHub to create the fork
+5. Fork appears in your repositories
+
+#### GitHub Issues
+**What are Issues?**
+- Messages to help track:
+  - Problem fixes
+  - Plans and roadmaps
+  - Important tasks
+  - Communications about the project
+
+**Creating New Issues:**
+1. Go to repository's "Issues" tab
+2. Click "New issue"
+3. Add title and description
+4. Use markdown for formatting
+5. Submit issue
+
+**Managing Issues:**
+**Assigning Issues:**
+- Assignee: Who should work on the issue
+- Can assign to collaborators
+- Multiple people can be assigned
+
+**Tagging in Issues:**
+- Tag: Who needs to read/be notified about the issue
+- Use @username to tag someone
+- Tagged users receive notifications
+
+**Issue Comments:**
+- Add updates and discussion
+- Reference other issues with #issue-number
+- Quote previous comments using > symbol
+- Support full markdown formatting
+
+**Linking Issues:**
+- Reference other issues: "Related to #123"
+- Link to specific comments
+- Create issue dependencies
+
+**Closing Issues:**
+- Click "Close issue" when resolved
+- Add comment explaining resolution
+- Closed issues remain accessible for reference
+
+#### Pull Requests (PRs)
+**What is a Pull Request?**
+- Way to notify others about changes
+- Allows repo owner to review changes before merging
+- Best practice: create changes in separate branch (not main)
+- Successful PR results in merging two branches
+
+**Creating Pull Requests:**
+1. Make changes in a branch (not main)
+2. Navigate to repository
+3. Click "Pull requests" tab
+4. Click "New pull request"
+5. Select branches to compare (base ← compare)
+6. Review changes in diff view
+7. Add title and description
+8. Assign reviewers if needed
+9. Create pull request
+
+**Comparing Changes:**
+- Shows differences between branches
+- Green lines: additions
+- Red lines: deletions
+- File-by-file comparison
+- Line-by-line changes highlighted
+
+**PR Information:**
+- Clear title describing changes
+- Detailed description of what was changed
+- Why changes were made
+- Any testing performed
+- Screenshots if UI changes
+
+#### Reviewing Pull Requests
+**Review Process Roles:**
+- **Assignee**: Person who approves/merges the PR
+- **Reviewer**: Person who examines changes before merge
+
+**Requesting Reviews:**
+1. In PR, click "Reviewers" section
+2. Search for and select reviewers
+3. Reviewers receive notification
+
+**Conducting Reviews:**
+1. Navigate to PR
+2. Click "Files changed" tab
+3. Review each changed file
+4. Add comments on specific lines if needed
+5. Submit review with decision
+
+**Review Options:**
+- **Comment**: Feedback and suggestions (no requirement to change)
+- **Request Changes**: Feedback that must be incorporated before merge
+- **Approve**: Changes look good and can be merged
+
+**Adding Comments:**
+- Click on line numbers to add inline comments
+- General comments in conversation tab
+- Use markdown for formatting
+- Reference other issues/PRs with #number
+
+**Responding to Reviews:**
+- Address requested changes
+- Make additional commits to same branch
+- Reply to comments explaining changes
+- Request re-review after making changes
+
+**Merging Pull Requests:**
+1. Ensure all reviews are approved
+2. All checks pass (if configured)
+3. Click "Merge pull request"
+4. Choose merge type:
+   - **Create merge commit**: Preserves branch history
+   - **Squash and merge**: Combines commits into one
+   - **Rebase and merge**: Replays commits without merge commit
+5. Confirm merge
+
+**Post-Merge Cleanup:**
+- Delete feature branch (GitHub offers option)
+- Branch can be restored if needed
+- Closed PRs remain accessible for reference
+
+**Restoring Deleted Branches:**
+- Go to closed PR
+- Click "Restore branch" if available
+- Or create new branch from specific commit
 
 ---
 
@@ -411,11 +817,11 @@ git revert HEAD
 
 - [x] **Introduction to Git**: Basic commands, staging, committing, history
 - [x] **Intermediate Git**: Branches, merging, conflicts, remotes, push/pull workflow
-- [ ] **GitHub Concepts**: [Topics TBD]  
+- [x] **GitHub Concepts**: Repository management, README creation, branches, collaboration, issues, pull requests  
 - [ ] **Intermediate GitHub**: [Topics TBD]
 - [ ] **Advanced Git**: [Topics TBD]
 
 ---
 
-*Last Updated: Thursday, July 03, 2025*
-*Course Progress: 2/5 courses completed*
+*Last Updated: Saturday, July 05, 2025*
+*Course Progress: 3/5 courses completed*
