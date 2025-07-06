@@ -5,7 +5,7 @@
 ### ✅ Course 1: Introduction to Git (Beginner) - **COMPLETED**
 ### ✅ Course 2: Intermediate Git (Beginner) - **COMPLETED**
 ### ✅ Course 3: Introduction to GitHub Concepts (Beginner) - **COMPLETED**
-### 📋 Course 4: Intermediate GitHub Concepts (Beginner) - **UPCOMING**  
+### ✅ Course 4: Intermediate GitHub Concepts (Beginner) - **COMPLETED**  
 ### 📋 Course 5: Advanced Git (Advanced) - **UPCOMING**
 
 ---
@@ -740,16 +740,499 @@ Unpacking objects: 100% (10/10), done.
 
 ---
 
-## Course 4: Intermediate GitHub Concepts (Beginner) 📋
+## Course 4: Intermediate GitHub Concepts (Beginner) ✅
 
-### Chapter 01: [Title TBD]
-*Notes to be added when course begins...*
+### Chapter 01: GitHub Projects and Automation
 
-### Chapter 02: [Title TBD]
-*Notes to be added when course begins...*
+#### Introduction to GitHub Projects
+**Definition and Benefits:**
+- Organizes tasks and tracks progress
+- Enhances collaboration between team members
+- Simplifies project tracking and management
 
-### Additional Chapters: [As Needed]
-*Additional chapters will be added based on course structure...*
+**Integration with Workflow:**
+- Integrates seamlessly with issues and pull requests
+- Provides centralized project management
+- Offers customizable project boards
+
+#### GitHub Projects vs Projects (Classic)
+**GitHub Projects (New):**
+- Flexible and highly customizable
+- Independent of specific repositories
+- Advanced features and better integration
+- Modern interface with multiple view options
+
+**Projects (Classic):**
+- Tied directly to repositories
+- Basic tracking capabilities
+- Limited customization options
+
+#### Setting Up GitHub Projects
+**Project Creation Process:**
+1. Navigate to GitHub and click "Projects"
+2. Click "New project"
+3. Choose project template or start from scratch
+4. Configure project settings
+
+**Available Layouts:**
+- **Table Layout**: Spreadsheet-like view with columns and rows
+- **Board Layout**: Kanban-style board with cards and columns
+- **Roadmap Layout**: Timeline view for project planning
+- **Other Layouts**: Additional specialized views
+
+**Project Configuration:**
+- **Project Name**: Descriptive name for easy identification
+- **Description**: Clear project purpose and scope
+- **Visibility Settings**: Public or private access
+- **Adding Tasks**: Create and organize project items
+
+#### Managing Project Visibility and Access
+**Visibility Settings:**
+- **Public**: Visible to everyone on the internet
+- **Private**: Restricted to team members and collaborators only
+
+**Access Roles:**
+- **Admin**: Full control over project settings and content
+  - Example: Head of data team, senior colleagues
+- **Write**: Can modify project content and settings
+  - Example: Data team members
+- **Read**: View-only access to project information
+  - Example: Product team members
+- **No Access**: Complete restriction from project
+  - Example: Other departments
+
+#### Automation and Insights
+**Importance of Automation:**
+- **GitHub Actions**: Streamlines and automates workflows
+- **Process Automation**: Simplifies repetitive tasks
+- **Real-time Insights**: Provides progress tracking data
+- **Issue Identification**: Helps spot bottlenecks early
+- **Informed Decisions**: Data-driven project management
+
+**Automation Tools:**
+**Built-in Automations:**
+- Auto-move tasks based on specific events
+- Keep project boards updated automatically
+- Trigger actions when issues/PRs change status
+
+**GitHub Actions Integration:**
+- Automate complex workflows using YAML files
+- Tag and manage tasks efficiently
+- Trigger tasks based on code events
+- Example workflow for data analysis:
+```yaml
+name: Data Workflow
+on: [push]
+jobs:
+  run-analysis:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Run analysis
+      run: python analyze_data.py
+```
+
+#### Project Insights
+**Insight Capabilities:**
+- **Progress Visualization**: Real-time and historical data charts
+- **Bottleneck Detection**: Identify issues early in development
+- **Chart Types**: Both current status and historical trend charts
+- **Data Analysis**: Track project performance over time
+
+**Creating Charts:**
+- Access project insights section
+- Choose appropriate chart type
+- Configure data parameters
+- Save and share insights with team
+
+### Chapter 02: GitHub Administration and Authentication
+
+#### GitHub Organizations
+**What is a GitHub Organization?**
+- **Centralized Workspace**: Manage multiple projects under one umbrella
+- **Role-based Access**: Control permissions at different levels
+- **Security Policies**: Implement organization-wide security measures
+- **Team Management**: Organize users into teams with specific roles
+
+**Creating Organizations:**
+- Navigate to GitHub and click "New organization"
+- Choose organization name and contact email
+- Configure billing settings
+- Set up initial teams and repositories
+
+#### Organization Administration
+**Key Organization Roles:**
+- **Owner**: Full control over the entire organization
+  - Manage all settings and permissions
+  - Add/remove members and teams
+  - Access billing and security settings
+- **Member**: Standard access for day-to-day collaboration
+  - Access to organization repositories
+  - Can create repositories (if permitted)
+- **Outside Collaborator**: Limited access to specific repositories
+  - No organization-level permissions
+  - Repository-specific access only
+
+**Additional Specialized Roles:**
+- **Moderator**: Manages interactions in public repositories
+  - Can block users and hide comments
+  - Helps maintain community standards
+- **Billing Manager**: Handles organization billing settings
+  - Access to payment information
+  - Can modify subscription plans
+- **Security Manager**: Oversees organization security settings
+  - Manages security policies
+  - Reviews security alerts
+
+#### Team Management
+**Why Use Teams?**
+- Simplifies permission management
+- Organizes members by projects, roles, or departments
+- Enables bulk permission assignments
+- Facilitates communication and collaboration
+
+**Team Creation:**
+- **Who Can Create**: Organization owners and members (if permitted)
+- **Organization Structure**: Group by projects, roles, or departments
+- **Nested Teams**: Create hierarchical team structures reflecting internal organization
+
+**Team Administration Roles:**
+- **Team Member**: Collaborates on assigned projects
+- **Team Maintainer**: Manages team settings and membership
+  - Can add/remove team members
+  - Modify team settings and permissions
+
+**Best Practice:**
+- Assign permissions to teams rather than individuals
+- Makes management easier and more scalable
+- Ensures consistent access control
+
+#### Repository-Level Administration
+**Repository Permission Levels:**
+- **Read**: View repository contents and participate in discussions
+- **Triage**: Manage issues and pull requests without write access
+- **Write**: Push code changes to repository
+- **Maintain**: Manage repository settings without access to sensitive actions
+- **Admin**: Full control over repository including sensitive settings
+
+#### Authentication Methods
+**Available Authentication Options:**
+- **Two-Factor Authentication (2FA)**: Adds extra security layer
+- **SSH Keys**: Secure, key-based authentication
+- **Personal Access Tokens (PAT)**: Controlled API access
+- **Identity Providers (IdP)**: Centralized user management
+
+#### Two-Factor Authentication (2FA)
+**2FA Methods:**
+- **Security Keys**: Most secure option using hardware keys
+- **TOTP (Time-based One-Time Password)**: Codes via authentication apps
+- **SMS Codes**: Receive verification codes via text message
+- **GitHub Mobile**: Convenient mobile app authentication
+
+**Setting Up 2FA:**
+1. Go to GitHub Settings > Password and authentication
+2. Click "Enable two-factor authentication"
+3. Choose preferred 2FA method
+4. Follow setup instructions
+5. Save recovery codes securely
+
+**Enabling 2FA for Organizations:**
+- Organization owners can require 2FA for all members
+- Set up in organization settings
+- Members receive notification to enable 2FA
+- Non-compliant members lose organization access
+
+#### SAML Single Sign-On (SSO)
+**Understanding SAML SSO:**
+- **Single Sign-On**: One secure login for multiple applications
+- **Requirements**: Requires SAML Identity Provider setup
+- **Common IdPs**: Microsoft Entra ID, Okta, OneLogin
+- **Benefits**: Centralized authentication and improved security
+
+**SAML SSO Implementation:**
+- Available for GitHub Enterprise Cloud
+- Requires organization owner permissions
+- Configuration through identity provider
+- Users authenticate through corporate SSO
+
+#### Personal Access Tokens (PAT)
+**PAT Overview:**
+- **Purpose**: Secure codes replacing passwords for API access
+- **Use Cases**: 
+  - Automating tasks and workflows
+  - Integrating with development tools
+  - Accessing GitHub from scripts and applications
+
+**PAT Types:**
+- **Classic PATs**: Broad access scope, less granular control
+- **Fine-grained PATs**: Precise permission control, enhanced security
+  - Repository-specific access
+  - Limited scope and duration
+  - Better security practices
+
+**Creating PATs:**
+1. Go to GitHub Settings > Developer settings
+2. Click "Personal access tokens"
+3. Choose token type (Classic or Fine-grained)
+4. Set expiration date
+5. Select required scopes/permissions
+6. Generate and securely store token
+
+#### OAuth Authorization Model
+**OAuth Benefits:**
+- **Secure Access**: Provides limited, controlled access to applications
+- **Credential Protection**: Safeguards user credentials
+- **Third-party Integration**: Enables secure app connections
+- **Use Case Example**: Connecting data tools like Apache Airflow to GitHub
+
+### Chapter 03: Team Synchronization and Secure Access Strategy
+
+#### Team Synchronization
+**Understanding Team Synchronization:**
+- **Automation**: Links GitHub teams to Identity Provider (IdP) groups
+- **Automatic Updates**: Syncs team membership with corporate directory
+- **Efficiency**: Reduces manual administrative work
+- **Requirements**: GitHub Enterprise Cloud and compatible IdP (e.g., Okta)
+
+**Team Synchronization Benefits:**
+- **Enhanced Security**: Automatically adjusts access based on IdP changes
+- **Scalability**: Manages large teams without manual intervention
+- **Operational Efficiency**: Automates routine access management tasks
+- **Consistency**: Ensures GitHub access matches organizational structure
+
+**Setting Up Team Synchronization:**
+1. Configure SAML SSO for organization
+2. Set up team synchronization in organization settings
+3. Map GitHub teams to IdP groups
+4. Test synchronization process
+5. Monitor ongoing synchronization
+
+#### Employee Lifecycle Management
+**Onboarding Process (Example: Emily):**
+**Step 1: Initial Setup**
+- Invite Emily to join the organization
+- Assign Member role for standard access
+- Request 2FA setup for security compliance
+
+**Step 2: Identity Provider Integration**
+- Add Emily to appropriate group in IdP (e.g., "Data Team")
+- Automatic synchronization adds her to GitHub "Data Team"
+- Receives write access to relevant repositories (e.g., ecommerce-data-hub)
+
+**Step 3: Daily Workflow Setup**
+- Emily generates Personal Access Token (PAT)
+- Integrates GitHub repository with development tools
+- Performs daily tasks: code development, commits, and pushes
+
+**Offboarding Process:**
+- Remove employee from IdP groups
+- GitHub access automatically revoked through synchronization
+- Review and archive employee contributions
+- Secure handover of responsibilities
+
+#### InnerSource Program Management
+**Transitioning from Open Source to InnerSource:**
+- **Open Source Projects**: Publicly available code with global collaboration
+- **InnerSource**: Applies open-source practices within organization
+- **Benefits**: Enhanced internal collaboration and transparency
+- **Controlled Environment**: Maintains security while promoting openness
+
+#### InnerSource Overview
+**Core Principles:**
+- Apply open-source development practices internally
+- Promote transparency and collaboration across teams
+- Encourage shared ownership of code and projects
+- Standardize contribution processes with templates
+
+**Implementation Strategy:**
+- Convert appropriate repositories to internal visibility
+- Establish contribution guidelines and templates
+- Create clear documentation and onboarding processes
+- Foster culture of internal collaboration
+
+#### Internal Repositories
+**Repository Visibility Types:**
+- **Private**: Access limited to specified collaborators
+- **Public**: Visible to everyone on the internet
+- **Internal**: Automatic read access for all organization members
+
+**Converting to Internal Repository:**
+1. Navigate to repository settings
+2. Go to "Danger Zone" section
+3. Click "Change repository visibility"
+4. Select "Make internal"
+5. Confirm changes
+
+#### Repository Templates and Standards
+**Creating Effective Repository Structure:**
+- **Clear Titles**: Use descriptive names (e.g., "data-pipelines", "ml-models")
+- **Consistent Naming**: Follow organization naming conventions
+- **Comprehensive Documentation**: Include setup and usage instructions
+
+**Issue and PR Templates:**
+**Issue Templates:**
+- Standardize problem reporting
+- Include required information fields
+- Provide clear submission guidelines
+- Ensure consistent issue quality
+
+**Pull Request Templates:**
+- Guide contributors on change submission
+- Include checklist for reviewers
+- Standardize change documentation
+- Improve code review process
+
+**Creating Templates:**
+1. Navigate to repository settings
+2. Click "Set up templates" in Features section
+3. Create issue template or PR template
+4. Define template structure and required fields
+5. Save and test templates
+
+#### InnerSource Limitations and Challenges
+**Common Challenges:**
+- **Cultural Resistance**: Teams may prefer traditional development methods
+- **Security Concerns**: Risk of exposing sensitive information
+- **Governance Requirements**: Need for strong policies and oversight
+- **Resource Investment**: Requires additional training and support resources
+
+**Mitigation Strategies:**
+- Gradual implementation and change management
+- Clear security guidelines and training
+- Executive sponsorship and support
+- Regular program evaluation and improvement
+
+### Chapter 04: Security and Secure Development Strategy
+
+#### Importance of Secure Development
+**Why Security Matters:**
+- **Code Protection**: Essential for maintaining project integrity
+- **Automated Security**: Reduces manual security review workload
+- **Early Prevention**: Identifies and fixes vulnerabilities before deployment
+- **Compliance**: Meets organizational and regulatory security requirements
+
+#### GitHub Advanced Security Features
+**Core Security Tools:**
+- **Code Scanning**: Automatically identifies vulnerabilities in source code
+- **Secret Scanning**: Detects and protects sensitive data like API keys
+- **Dependency Graph**: Visualizes project dependencies and relationships
+- **Dependabot**: Manages dependencies and automates security updates
+
+**Security Integration:**
+- Available for GitHub Enterprise Cloud
+- Integrates with existing development workflows
+- Provides actionable security insights
+- Supports multiple programming languages
+
+#### Dependency Management
+**Understanding Dependency Graph:**
+- **Visualization**: See all project dependencies in one view
+- **Risk Assessment**: Identify vulnerabilities in dependency chain
+- **Update Tracking**: Monitor changes and updates to dependencies
+- **Security Monitoring**: Track security advisories for dependencies
+
+**Adding Dependencies:**
+**Python Project Example:**
+```python
+# requirements-analysis.txt
+pandas==1.2.4
+numpy==1.20.3
+matplotlib==3.4.2
+
+# requirements-ml.txt
+pandas==1.3.0
+numpy==1.21.0
+scikit-learn==0.24.2
+
+# setup.py
+name="ecommerce-data-hub",
+version="0.1",
+packages=find_packages(),
+```
+
+**Viewing Dependency Graph:**
+1. Navigate to repository
+2. Click "Insights" tab
+3. Select "Dependency graph"
+4. Review dependencies and their relationships
+5. Check for security advisories
+
+#### Dependabot Configuration
+**Enabling Dependabot Alerts:**
+1. Go to repository Settings
+2. Navigate to "Security & analysis" section
+3. Enable "Dependabot alerts"
+4. Configure notification preferences
+5. Review generated alerts
+
+**Managing Dependabot Alerts:**
+- **Alert Review**: Check security tab for vulnerabilities
+- **Priority Assessment**: Evaluate severity and impact
+- **Automated Updates**: Allow Dependabot to create fix PRs
+- **Manual Review**: Review and merge security updates
+
+**Dependabot Workflow:**
+1. **Dependency Graph**: Visualizes all dependencies
+2. **Dependabot Alerts**: Notifies about vulnerabilities
+3. **Dependabot Updates**: Automatically creates fix PRs
+4. **Review Process**: Team reviews and merges updates
+
+#### Security Policies and Data Management
+**Security Policy Setup:**
+**SECURITY.md File:**
+- **Purpose**: Provides guidelines for security issue reporting
+- **Key Elements**: 
+  - Contact information for security team
+  - Reporting guidelines and procedures
+  - Expected response times
+  - Disclosure policies
+- **Customization**: Tailored to project-specific security needs
+
+**Creating SECURITY.md:**
+1. Create new file named "SECURITY.md" in repository root
+2. Include security reporting procedures
+3. Provide contact information
+4. Define response timelines
+5. Commit and make visible to contributors
+
+#### Sensitive Data Management
+**Risks of Committing Sensitive Data:**
+- **Data Exposure**: Risk of leaking confidential information
+- **Unauthorized Access**: Potential system compromise
+- **Compliance Violations**: Regulatory and legal issues
+- **Immediate Action Required**: Quick response needed to minimize damage
+
+**If Sensitive Data is Committed:**
+1. **Change credentials immediately** if API keys or passwords were exposed
+2. **Assess exposure scope** and potential impact
+3. **Remove sensitive data** from repository history
+4. **Notify relevant stakeholders** about the incident
+
+**Data Removal Tools:**
+**git filter-repo:**
+- **Detailed Control**: Comprehensive history management
+- **Complex Operations**: Best for intricate cleanup scenarios
+- **Versatile**: Supports various repository manipulation tasks
+
+**BFG Repo-Cleaner:**
+- **Fast Processing**: Quick and simple to use
+- **Bulk Operations**: Excellent for large-scale deletions
+- **Open Source**: Focused on speed and efficiency
+
+**Important Note:**
+- GitHub UI has limitations for advanced repository cleanup
+- Terminal commands required for sensitive data removal
+- Always backup repository before major cleanup operations
+- Consider professional security consultation for serious breaches
+
+**Cleanup Process Overview:**
+1. **Immediate Response**: Change exposed credentials
+2. **Tool Selection**: Choose appropriate cleanup tool
+3. **Backup Creation**: Ensure repository backup exists
+4. **Cleanup Execution**: Remove sensitive data from history
+5. **Force Push**: Update remote repository
+6. **Team Notification**: Inform team about changes
+7. **Monitoring**: Watch for any remaining exposure
 
 ---
 
@@ -818,10 +1301,10 @@ git revert HEAD
 - [x] **Introduction to Git**: Basic commands, staging, committing, history
 - [x] **Intermediate Git**: Branches, merging, conflicts, remotes, push/pull workflow
 - [x] **GitHub Concepts**: Repository management, README creation, branches, collaboration, issues, pull requests  
-- [ ] **Intermediate GitHub**: [Topics TBD]
+- [x] **Intermediate GitHub**: Projects, administration, authentication, InnerSource, security
 - [ ] **Advanced Git**: [Topics TBD]
 
 ---
 
-*Last Updated: Saturday, July 05, 2025*
-*Course Progress: 3/5 courses completed*
+*Last Updated: Saturday, July 06, 2025*
+*Course Progress: 4/5 courses completed*
