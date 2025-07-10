@@ -1,5 +1,9 @@
 # Git Learning Journey - Complete Notes
 
+## Quick Access
+📋 **[Git & GitHub Cheatsheet](./cheatsheet.md)** - Essential commands and code snippets
+
+
 ## Course Learning Plan Schedule
 
 ### ✅ Course 1: Introduction to Git (Beginner) - **COMPLETED**
