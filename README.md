@@ -6,7 +6,7 @@
 ### ✅ Course 2: Intermediate Git (Beginner) - **COMPLETED**
 ### ✅ Course 3: Introduction to GitHub Concepts (Beginner) - **COMPLETED**
 ### ✅ Course 4: Intermediate GitHub Concepts (Beginner) - **COMPLETED**  
-### 📋 Course 5: Advanced Git (Advanced) - **UPCOMING**
+### ✅  Course 5: Advanced Git (Advanced) - **COMPLETED**
 
 ---
 
@@ -1236,16 +1236,156 @@ packages=find_packages(),
 
 ---
 
-## Course 5: Advanced Git (Advanced) 📋
+## 5. Advanced Git
 
-### Chapter 01: [Title TBD]
-*Notes to be added when course begins...*
+### Chapter 1: Understanding Merge Types
 
-### Chapter 02: [Title TBD]
-*Notes to be added when course begins...*
+**Merge Strategies:**
+- **Fast-forward merge**: Keeps simple, linear history; ideal for short-lived branches
+  ```bash
+  git merge feature_branch
+  git merge --ff-only feature_branch  # Force fast-forward
+  ```
 
-### Additional Chapters: [As Needed]
-*Additional chapters will be added based on course structure...*
+- **Recursive merge**: Creates merge commit with two parents; preserves project history
+  ```bash
+  git merge --no-ff feature_branch
+  ```
+
+**Complex Merge Scenarios:**
+- **Squash merge**: Combines multiple commits into single commit for clean history
+  ```bash
+  git merge --squash source_branch
+  git commit -m "Implement feature"
+  ```
+
+- **Octopus merge**: Merges three or more branches simultaneously
+  ```bash
+  git merge -s octopus branch1 branch2 branch3
+  ```
+
+**Git Rebasing:**
+- **Basic rebase**: Maintains linear commit history by replaying commits
+  ```bash
+  git checkout feature_branch
+  git rebase main
+  ```
+
+- **Interactive rebase**: Allows granular changes to commit history
+  ```bash
+  git rebase -i HEAD~3  # Edit last 3 commits
+  ```
+
+**Key Principles:**
+- Use merge for preserving development context
+- Use rebase for clean, linear history
+- Never rebase public branches
+- Interactive rebase useful for cleaning up before merging
+
+### Chapter 2: Advanced Git Operations
+
+**Cherry-Picking:**
+- Apply specific commits to another branch
+  ```bash
+  git cherry-pick <commit-hash>
+  git cherry-pick <hash1> <hash2>  # Multiple commits
+  ```
+
+- **Conflict resolution:**
+  ```bash
+  git cherry-pick --continue  # After resolving conflicts
+  git cherry-pick --abort     # Cancel operation
+  ```
+
+**Git Bisect:**
+- Binary search to find bug-introducing commit
+  ```bash
+  git bisect start
+  git bisect bad              # Mark current as bad
+  git bisect good <commit>    # Mark known good commit
+  git bisect run <script>     # Automated testing
+  git bisect reset           # Exit bisect mode
+  ```
+
+**Git Filter-Repo:**
+- Rewrite repository history safely
+  ```bash
+  pip install git-filter-repo
+  git filter-repo --path secrets.txt --invert-paths  # Remove file from history
+  ```
+
+**Git Reflog:**
+- Local record of ALL reference updates
+  ```bash
+  git reflog                    # View reflog
+  git reflog --since="1 week ago"  # Filtered view
+  ```
+
+- **Recovery operations:**
+  ```bash
+  git checkout <hash>          # Move to specific commit
+  git checkout -b new-branch   # Create branch from current HEAD
+  git reset --soft HEAD@{1}    # Soft reset to previous state
+  ```
+
+**Reset Types:**
+- `--soft`: Keeps changes staged
+- `--mixed`: Unstages changes (default)
+- `--hard`: Discards all changes
+
+### Chapter 3: Advanced Workflow Management
+
+**Git Worktrees:**
+- Multiple active branches in separate directories
+  ```bash
+  git worktree add <path> <branch>     # Create worktree
+  git worktree list                    # List worktrees
+  git worktree remove <path>           # Remove worktree
+  ```
+
+**Git Submodules:**
+- Nested repositories with separate version control
+  ```bash
+  git submodule add <repo-url> <path>          # Add submodule
+  git submodule status                         # List submodules
+  git submodule update --init --remote         # Update submodules
+  git submodule deinit <name>                  # Remove submodule
+  ```
+
+**Git Large File Storage (LFS):**
+- Manage large files efficiently
+  ```bash
+  git lfs install                      # Initialize LFS
+  git lfs track "*.csv"               # Track file types
+  git add .gitattributes              # Add tracking config
+  git lfs pull                        # Download LFS content
+  ```
+
+**Trunk Based Development:**
+- **Core principles:**
+  - Frequent commits to main branch
+  - Short-lived feature branches (< 1 day)
+  - Continuous integration
+  - Feature flags for incomplete work
+
+- **Benefits:**
+  - Reduced merge conflicts
+  - Faster release cycles
+  - Improved code quality
+  - Better collaboration
+
+- **Best practices:**
+  - Commit small changes frequently
+  - Automate testing and deployment
+  - Use feature flags strategically
+  - Conduct regular code reviews
+
+**Key Takeaways:**
+- Master advanced merge strategies for different scenarios
+- Use bisect for efficient debugging
+- Leverage worktrees for parallel development
+- Implement proper large file management
+- Adopt trunk-based development for faster delivery
 
 ---
 
@@ -1302,9 +1442,9 @@ git revert HEAD
 - [x] **Intermediate Git**: Branches, merging, conflicts, remotes, push/pull workflow
 - [x] **GitHub Concepts**: Repository management, README creation, branches, collaboration, issues, pull requests  
 - [x] **Intermediate GitHub**: Projects, administration, authentication, InnerSource, security
-- [ ] **Advanced Git**: [Topics TBD]
+- [x] **Advanced Git**: Merge strategies, rebasing, cherry-picking, bisect, filter-repo, reflog, worktrees, submodules, LFS, trunk-based development
 
 ---
 
-*Last Updated: Saturday, July 06, 2025*
-*Course Progress: 4/5 courses completed*
+*Last Updated: Saturday, July 08, 2025*
+*Course Progress: 5/5 courses completed*
